@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ngữ Pháp Tiếng Anh 6-9 — Bài Học &amp; Bài Tập</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #141922;
+    --panel: #1c2330;
+    --panel-2: #202836;
+    --panel-3: #232c3c;
+    --line: #2c3444;
+    --text: #E8ECF1;
+    --text-dim: #8B95A7;
+    --s: #5B8DEF;
+    --s-bg: rgba(91,141,239,0.14);
+    --v: #E8A33D;
+    --v-bg: rgba(232,163,61,0.14);
+    --aux: #9B8AE6;
+    --aux-bg: rgba(155,138,230,0.14);
+    --o: #4CAF7D;
+    --o-bg: rgba(76,175,125,0.14);
+    --be: #E86A92;
+    --be-bg: rgba(232,106,146,0.14);
+    --accent: #E8A33D;
+    --good: #4CAF7D;
+    --mid: #E8A33D;
+    --bad: #E86A92;
+    --radius: 10px;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background: radial-gradient(circle at 15% 0%, #1a2130 0%, var(--bg) 55%);
+    color: var(--text);
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height:100vh;
+    padding: 24px 18px 40px;
+  }
+  .wrap{ max-width: 1240px; margin: 0 auto; }
+  header{ margin-bottom: 16px; }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace;
+    font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif;
+    font-size: clamp(22px, 4vw, 32px);
+    margin: 0 0 6px; font-weight: 700; letter-spacing: -0.01em;
+  }
+  .sub{ color: var(--text-dim); font-size: 14px; max-width: 720px; line-height:1.5;}
+
+  /* ---------- Top controls: tabs + grade ---------- */
+  .top-controls{
+    display:flex; flex-wrap:wrap; gap:12px; align-items:center; justify-content:space-between;
+    margin: 18px 0 20px;
+  }
+  .tabs{ display:flex; gap:8px; background: var(--panel-2); border:1px solid var(--line); border-radius: 12px; padding:4px; }
+  .tab-btn{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size: 13.5px;
+    padding: 9px 18px; border-radius: 9px; cursor:pointer; color: var(--text-dim);
+    border:none; background:transparent; transition: all .2s ease;
+  }
+  .tab-btn.active{ background: rgba(232,163,61,.16); color: var(--accent); }
+  .grades{ display:flex; gap:8px; flex-wrap:wrap; }
+  .grade-btn{
+    font-family:'JetBrains Mono', monospace; font-weight:600; font-size: 12.5px;
+    padding: 9px 16px; border-radius: 10px; cursor:pointer;
+    background: var(--panel-2); border:1px solid var(--line); color: var(--text-dim);
+    transition: all .2s ease; position:relative;
+  }
+  .grade-btn:hover{ border-color: rgba(232,163,61,.4); color:var(--text); }
+  .grade-btn.active{ background: rgba(232,163,61,.16); border-color: var(--accent); color: var(--accent); }
+  .grade-btn.soon::after{
+    content:"Sắp ra mắt"; position:absolute; top:-9px; right:-6px;
+    font-size:8.5px; background: var(--be); color:#fff; padding:2px 5px; border-radius:6px; letter-spacing:.02em;
+  }
+
+  .layout{
+    display:grid;
+    grid-template-columns: 1.55fr 1fr;
+    gap: 20px;
+    align-items:start;
+  }
+  @media (max-width: 860px){ .layout{ grid-template-columns: 1fr; } }
+
+  .stage{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 24px 20px;
+    min-height: 420px;
+    position: relative;
+  }
+
+  .placeholder{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; min-height: 360px; color: var(--text-dim); gap:10px;
+  }
+  .placeholder .big{ font-size: 32px; }
+  .placeholder .t1{ font-family:'Space Grotesk', sans-serif; color: var(--text); font-size:16px; font-weight:700; }
+  .placeholder .t2{ font-size: 13px; max-width: 340px; }
+
+  .tag{
+    display:inline-block; padding: 3px 9px; border-radius: 999px;
+    font-size: 11px; letter-spacing:.04em; border:1px solid var(--line);
+    color: var(--text-dim); font-family:'JetBrains Mono', monospace;
+  }
+
+  /* ---------- Bài học: stage detail ---------- */
+  .lesson-head{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px;
+    margin-bottom: 14px;
+  }
+  .lesson-name{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size: 18px; }
+  .lesson-vi{ color: var(--text-dim); font-size: 13px; margin-top:2px; }
+  .lesson-usage{
+    font-size: 13.5px; color: var(--text-dim); line-height:1.6; margin: 10px 0 16px;
+    background: var(--panel-2); border:1px solid var(--line); border-radius: var(--radius);
+    padding: 12px 14px;
+  }
+  .lesson-usage b{ color: var(--text); }
+  .struct-block{ margin-bottom: 14px; }
+  .struct-label{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing:.08em;
+    text-transform:uppercase; color: var(--text-dim); margin-bottom: 8px;
+  }
+  .struct-row{
+    display:flex; align-items:center; gap:10px; flex-wrap:wrap;
+    background: var(--panel-2); border:1px solid var(--line); border-radius: 8px;
+    padding: 9px 12px; margin-bottom:6px; font-size: 12.5px;
+  }
+  .struct-row .k{ color: var(--text-dim); min-width: 130px; }
+  .struct-row .f{ font-family:'JetBrains Mono', monospace; color: var(--accent); font-weight:600; }
+  .lesson-example{
+    background: linear-gradient(135deg, rgba(232,163,61,.08), rgba(91,141,239,.06));
+    border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 15px; margin-bottom: 8px;
+  }
+  .lesson-example .en{ font-size: 14.5px; font-weight:600; }
+  .lesson-example .vi{ font-size: 12.5px; color: var(--text-dim); margin-top:3px; }
+  .lesson-signals{ display:flex; flex-wrap:wrap; gap: 8px; margin: 12px 0; }
+  .lesson-signals .pill{
+    font-size: 12px; padding: 5px 10px; border-radius: 999px;
+    background: var(--panel-2); border:1px solid var(--line); color: var(--text-dim);
+  }
+  .lesson-note{
+    background: var(--panel-2); border:1px solid var(--line); border-left:3px solid var(--v);
+    border-radius: var(--radius); padding: 12px 14px; font-size: 12.5px; color: var(--text-dim); line-height:1.6;
+  }
+  .lesson-note b{ color: var(--text); }
+  .section-tiny-title{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing:.08em;
+    text-transform:uppercase; color: var(--text-dim); margin: 14px 0 8px;
+  }
+
+  /* ---------- Picker (danh sách chủ điểm theo Unit) ---------- */
+  .picker{ background: var(--panel); border: 1px solid var(--line); border-radius: 16px; overflow:hidden; }
+  .picker-head{ display:flex; align-items:center; justify-content:space-between; padding: 16px 18px; }
+  .picker-head .t{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:15px; display:flex; align-items:center; gap:9px; }
+  .picker-head .t .dot{ width:8px; height:8px; border-radius:50%; background: var(--accent); }
+  .picker-body{ max-height: 620px; overflow-y:auto; padding: 4px 14px 16px; }
+  .picker-body::-webkit-scrollbar{ width:6px; }
+  .picker-body::-webkit-scrollbar-thumb{ background: var(--line); border-radius:6px; }
+  .unit-group{ margin-bottom: 10px; }
+  .unit-label{
+    font-family:'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-dim);
+    letter-spacing:.06em; text-transform:uppercase; padding: 8px 4px 6px; display:flex; justify-content:space-between;
+  }
+  .topic-btn{
+    width:100%; text-align:left; display:flex; align-items:center; gap:10px;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px; color: var(--text);
+    padding: 10px 12px; font-size: 12.5px; cursor:pointer; margin-bottom: 6px;
+    transition: border-color .2s ease, background .2s ease, transform .15s ease;
+  }
+  .topic-btn:hover{ border-color: rgba(232,163,61,.4); transform: translateX(2px); }
+  .topic-btn.active{ background: rgba(232,163,61,.16); border-color: var(--accent); color: var(--accent); font-weight:600; }
+  .topic-btn .num{ font-family:'JetBrains Mono', monospace; font-size: 10.5px; color: var(--text-dim); flex:none; width:20px; }
+  .topic-btn.active .num{ color: var(--accent); }
+  .topic-check{
+    width:16px; height:16px; flex:none; accent-color: var(--accent); cursor:pointer;
+  }
+
+  /* ---------- Bài tập: config + quiz ---------- */
+  .quiz-config{ padding: 10px 18px 6px; border-top: 1px solid var(--line); }
+  .config-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin: 8px 0; flex-wrap:wrap; }
+  .config-label{ font-family:'JetBrains Mono', monospace; font-size: 11.5px; color: var(--text-dim); }
+  .count-btns{ display:flex; gap:6px; }
+  .cbtn{
+    font-family:'JetBrains Mono', monospace; font-size: 12px; font-weight:600; cursor:pointer;
+    background: var(--panel-2); border: 1px solid var(--line); border-radius: 8px;
+    color: var(--text-dim); padding: 7px 13px;
+    transition: border-color .2s ease, color .2s ease, background .2s ease;
+  }
+  .cbtn:hover{ color: var(--text); border-color: var(--accent); }
+  .cbtn.active{ background: rgba(232,163,61,.16); border-color: var(--accent); color: var(--accent); }
+  .select-all-row{ display:flex; gap:8px; padding: 6px 4px 4px; }
+  .link-btn{
+    font-family:'JetBrains Mono', monospace; font-size: 11px; color: var(--s); cursor:pointer; background:none; border:none; padding:0;
+  }
+  .link-btn:hover{ text-decoration: underline; }
+  .start-row{ padding: 14px 18px 18px; }
+  .btn{
+    font-family:'JetBrains Mono', monospace; font-size: 12.5px; cursor:pointer;
+    border-radius: 8px; padding: 10px 16px; border: 1px solid var(--line);
+    transition: border-color .2s ease, color .2s ease, background .2s ease;
+  }
+  .btn-ghost{ background: var(--panel-2); color: var(--text-dim); }
+  .btn-ghost:hover{ color: var(--text); border-color: var(--accent); }
+  .btn-primary{ background: rgba(232,163,61,.16); color: var(--accent); border-color: var(--accent); font-weight:600; width:100%; }
+  .btn-primary:hover{ background: rgba(232,163,61,.24); }
+  .btn:disabled{ opacity:.45; cursor:not-allowed; }
+
+  .quiz-toolbar{
+    display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px;
+    padding-bottom: 14px; margin-bottom: 14px; border-bottom: 1px solid var(--line);
+  }
+  .quiz-toolbar .title{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size: 16px; }
+  .quiz-toolbar .count-tag{ font-family:'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .qlist{ display:flex; flex-direction:column; gap: 12px; }
+  .qrow{
+    background: var(--panel-2); border:1px solid var(--line); border-radius: var(--radius);
+    padding: 14px 16px; transition: border-color .2s ease, background .2s ease;
+  }
+  .qrow.correct{ border-color: rgba(76,175,125,.5); background: rgba(76,175,125,.07); }
+  .qrow.wrong{ border-color: rgba(232,106,146,.5); background: rgba(232,106,146,.06); }
+  .qmeta{ display:flex; align-items:center; gap:8px; margin-bottom:8px; }
+  .qnum{ font-family:'JetBrains Mono', monospace; font-size: 11px; color: var(--text-dim); }
+  .lvl-tag{ font-family:'JetBrains Mono', monospace; font-size:9.5px; padding:2px 7px; border-radius:999px; letter-spacing:.04em; }
+  .lvl-tag.basic{ background: var(--o-bg); color: var(--o); }
+  .lvl-tag.advanced{ background: var(--s-bg); color: var(--s); }
+  .lvl-tag.thinking{ background: var(--v-bg); color: var(--v); }
+  .qtopic{ font-family:'JetBrains Mono', monospace; font-size:10px; color: var(--text-dim); margin-left:auto; }
+  .qprompt{ font-size: 14.5px; line-height:1.6; margin-bottom: 10px; }
+  .qoptions{ display:flex; flex-direction:column; gap:7px; }
+  .qopt{
+    display:flex; align-items:center; gap:9px; font-size: 13.5px;
+    background: var(--panel-3); border:1px solid var(--line); border-radius: 8px;
+    padding: 8px 11px; cursor:pointer; transition: border-color .15s ease;
+  }
+  .qopt:hover{ border-color: rgba(91,141,239,.4); }
+  .qopt input{ accent-color: var(--accent); cursor:pointer; }
+  .qopt.opt-correct{ border-color: var(--good); color: var(--good); }
+  .qopt.opt-wrong{ border-color: var(--bad); color: var(--bad); }
+  .qexplain{
+    margin-top: 10px; padding-top:9px; border-top: 1px dashed var(--line);
+    font-size: 12.5px; color: var(--text-dim); line-height:1.55; display:none;
+  }
+  .qexplain b{ color: var(--text); }
+  .qrow.graded .qexplain{ display:block; }
+
+  .score-bar{
+    display:none; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    margin-top: 16px; padding: 14px 16px; border-radius: var(--radius); border:1px solid var(--line);
+    font-family:'JetBrains Mono', monospace; font-size: 13px;
+  }
+  .score-bar.good{ background: rgba(76,175,125,.1); border-color: rgba(76,175,125,.4); color: var(--good); }
+  .score-bar.mid{ background: rgba(232,163,61,.1); border-color: rgba(232,163,61,.4); color: var(--accent); }
+  .score-bar.low{ background: rgba(232,106,146,.1); border-color: rgba(232,106,146,.4); color: var(--bad); }
+
+  .export-row{
+    display:flex; align-items:center; justify-content:flex-end; gap:8px; flex-wrap:wrap;
+    margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line);
+  }
+  .export-row .title{
+    font-family:'JetBrains Mono', monospace; font-size: 11.5px; letter-spacing:.06em;
+    text-transform:uppercase; color: var(--text-dim); margin-right:auto;
+  }
+  .copy-flash{ color: var(--good) !important; border-color: var(--good) !important; }
+
+  .hidden{ display:none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Ngữ pháp tiếng Anh · Lớp 6 – 9 · Global Success</p>
+    <h1>Bài Học &amp; Bài Tập Ngữ Pháp</h1>
+    <p class="sub">Chọn khối lớp, xem lý thuyết chi tiết từng chủ điểm, hoặc luyện tập với ngân hàng câu hỏi trộn theo gói 10 – 15 – 20 câu (cơ bản · nâng cao · tư duy).</p>
+  </header>
+
+  <div class="top-controls">
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="lesson">📖 Bài học</button>
+      <button class="tab-btn" data-tab="exercise">✍️ Bài tập</button>
+    </div>
+    <div class="grades" id="gradeRow">
+      <button class="grade-btn active" data-grade="6">Lớp 6</button>
+      <button class="grade-btn soon" data-grade="7">Lớp 7</button>
+      <button class="grade-btn soon" data-grade="8">Lớp 8</button>
+      <button class="grade-btn soon" data-grade="9">Lớp 9</button>
+    </div>
+  </div>
+
+  <!-- ============ TAB: BÀI HỌC ============ -->
+  <div id="tabLesson" class="tab-panel">
+    <div class="layout">
+      <div class="stage" id="lessonStage">
+        <div class="placeholder" id="lessonPlaceholder">
+          <div class="big">📘</div>
+          <div class="t1">Chọn một chủ điểm ở khung bên phải</div>
+          <div class="t2">21 chủ điểm ngữ pháp lớp 6 theo 12 Unit — Global Success. Nội dung gồm công thức, ví dụ minh hoạ và mẹo tránh lỗi sai.</div>
+        </div>
+        <div id="lessonBody" style="display:none;"></div>
+      </div>
+
+      <div class="picker">
+        <div class="picker-head">
+          <span class="t"><span class="dot"></span>21 CHỦ ĐIỂM — LỚP 6</span>
+          <span class="tag" id="lessonCountTag">0/21</span>
+        </div>
+        <div class="picker-body" id="lessonPickerBody"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ TAB: BÀI TẬP ============ -->
+  <div id="tabExercise" class="tab-panel hidden">
+    <div class="layout">
+      <div class="stage" id="exerciseStage">
+        <div class="placeholder" id="exercisePlaceholder">
+          <div class="big">✍️</div>
+          <div class="t1">Chọn chủ điểm và số câu ở khung bên phải</div>
+          <div class="t2">Có thể chọn 1 hoặc trộn nhiều chủ điểm cùng lúc. Mỗi gói câu hỏi trộn đều 3 mức độ: cơ bản · nâng cao · tư duy.</div>
+        </div>
+        <div id="quizArea" style="display:none;">
+          <div class="quiz-toolbar">
+            <div>
+              <div class="title" id="quizTitle">Bài luyện tập</div>
+              <div class="count-tag" id="quizSubTitle"></div>
+            </div>
+            <div style="display:flex; gap:8px;">
+              <button class="btn btn-ghost" id="reshuffleBtn">🔀 Đổi câu hỏi khác</button>
+              <button class="btn btn-primary" id="checkBtn" style="width:auto;">✓ Kiểm tra đáp án</button>
+            </div>
+          </div>
+          <div class="qlist" id="qlist"></div>
+          <div class="score-bar" id="scoreBar"></div>
+          <div class="export-row">
+            <span class="title">Xuất bài luyện tập</span>
+            <button class="btn btn-ghost" id="copyBtn">📋 Copy đề bài</button>
+            <button class="btn btn-ghost" id="exportWordBtn">📄 Xuất Word (.doc)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="picker">
+        <div class="picker-head">
+          <span class="t"><span class="dot"></span>CHỌN CHỦ ĐIỂM</span>
+          <span class="tag" id="exSelectedTag">0 đã chọn</span>
+        </div>
+        <div class="select-all-row">
+          <button class="link-btn" id="selectAllBtn">Chọn tất cả 21 chủ điểm</button>
+          <span style="color:var(--line)">|</span>
+          <button class="link-btn" id="clearAllBtn">Bỏ chọn hết</button>
+        </div>
+        <div class="picker-body" id="exercisePickerBody" style="max-height:380px;"></div>
+        <div class="quiz-config">
+          <div class="config-row">
+            <span class="config-label">SỐ CÂU</span>
+            <div class="count-btns" id="countBtns">
+              <button class="cbtn active" data-count="10">10</button>
+              <button class="cbtn" data-count="15">15</button>
+              <button class="cbtn" data-count="20">20</button>
+            </div>
+          </div>
+        </div>
+        <div class="start-row">
+          <button class="btn btn-primary" id="startBtn" disabled>Bắt đầu luyện tập</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ================= DATA.JS (nhúng trực tiếp, không cần file ngoài) ================= */
+/* =========================================================================
+   DATA LỚP 6 — 21 chủ điểm ngữ pháp (Global Success), 12 Units, 2 học kỳ
+   Nguồn: tonghopnguphaptienganh6.pdf (đã hệ thống hoá lại)
+   ========================================================================= */
+
+const GRADE6_TOPICS = [
+  { id:'t01', unit:1, unitName:'My New School', title:'Present Simple', vi:'Thì Hiện tại đơn',
+    usage:'Diễn tả thói quen hằng ngày, sở thích cá nhân, hoặc các sự thật hiển nhiên luôn đúng.',
+    structure:[
+      { label:'Động từ thường', rows:[
+        { k:'Khẳng định (+)', f:'S + V(s/es) + O' },
+        { k:'Phủ định (−)', f:'S + do/does not + V(bare) + O' },
+        { k:'Nghi vấn (?)', f:'Do/Does + S + V(bare) + O ?' } ] },
+      { label:'Động từ To be', rows:[
+        { k:'Khẳng định (+)', f:'S + am/is/are' },
+        { k:'Phủ định (−)', f:'S + am/is/are + not' },
+        { k:'Nghi vấn (?)', f:'Am/Is/Are + S ... ?' } ] } ],
+    examples:[
+      { en:'We go to school on foot every day.', vi:'Chúng tôi đi bộ đi học mỗi ngày.' },
+      { en:"My father doesn't like playing computer games.", vi:'Bố tôi không thích chơi trò chơi điện tử.' } ],
+    signals:['every day','usually','always','often','never','on Mondays'],
+    note:"Chủ ngữ số ít (He/She/It/danh từ số ít) → thêm <b>s/es</b> sau động từ. Từ tận cùng bằng o, s, ch, x, sh → thêm <b>es</b> (go → goes, watch → watches)." },
+
+  { id:'t02', unit:1, unitName:'My New School', title:'Adverbs of Frequency', vi:'Trạng từ chỉ tần suất',
+    usage:'Diễn tả mức độ thường xuyên của một hành động: always, usually, often, sometimes, rarely, never.',
+    structure:[
+      { label:'Vị trí trong câu', rows:[
+        { k:'Với động từ thường', f:'S + trạng từ + V ...' },
+        { k:'Với động từ To be', f:'S + am/is/are + trạng từ + ...' } ] } ],
+    examples:[
+      { en:'I usually do my homework after school.', vi:'Tôi thường làm bài tập về nhà sau giờ học.' },
+      { en:'Our teacher is never late for class.', vi:'Giáo viên của chúng tôi không bao giờ đi học muộn.' } ],
+    signals:['always','usually','often','sometimes','rarely','never'],
+    note:'Lỗi thường gặp: đặt trạng từ TRƯỚC động từ to be (Sai: He usually is friendly. Đúng: <b>He is usually friendly.</b>).' },
+
+  { id:'t03', unit:2, unitName:'My House', title:"Possessive Case ('s)", vi:'Sở hữu cách',
+    usage:'Diễn tả mối quan hệ sở hữu của một ai đó đối với đồ vật hoặc người khác.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Danh từ số ít / riêng', f:"N (người) + 's + N (vật)" },
+      { k:'Ví dụ cấu trúc', f:"Vy's room · my mother's book" } ] } ],
+    examples:[
+      { en:"This is Elena's desk.", vi:'Đây là bàn học của Elena.' },
+      { en:"Where is your brother's book?", vi:'Sách của anh trai bạn ở đâu thế?' } ],
+    signals:["'s","of"],
+    note:"Không nhầm 's viết tắt của 'is' (He's a student) với 's sở hữu cách (Sai: He's book → Đúng: <b>His book</b> hoặc <b>Vy's book</b>)." },
+
+  { id:'t04', unit:2, unitName:'My House', title:'Prepositions of Place', vi:'Giới từ chỉ nơi chốn',
+    usage:'Xác định và chỉ vị trí cụ thể của người hoặc vật: in, on, under, behind, next to, in front of, between.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'S + be + giới từ + cụm danh từ chỉ nơi chốn' } ] } ],
+    examples:[
+      { en:'There is a computer next to the television.', vi:'Có một cái máy tính đặt bên cạnh chiếc tivi.' },
+      { en:'The cat is sleeping under the bed.', vi:'Con mèo đang ngủ dưới gầm giường.' } ],
+    signals:['in','on','under','behind','next to','in front of','between'],
+    note:"Giới từ <b>between</b> luôn đi cùng cấu trúc 'between A and B' (ở giữa cái gì và cái gì)." },
+
+  { id:'t05', unit:3, unitName:'My Friends', title:'Present Continuous', vi:'Thì Hiện tại tiếp diễn',
+    usage:'Diễn tả một hành động đang xảy ra ngay tại thời điểm nói hoặc đang tiếp diễn xung quanh thời điểm nói.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Khẳng định (+)', f:'S + am/is/are + V-ing' },
+      { k:'Phủ định (−)', f:'S + am/is/are + not + V-ing' },
+      { k:'Nghi vấn (?)', f:'Am/Is/Are + S + V-ing ?' } ] } ],
+    examples:[
+      { en:'Listen! Someone is singing in the classroom.', vi:'Nghe kìa! Ai đó đang hát trong lớp học.' },
+      { en:'Are they playing football in the yard now?', vi:'Bây giờ họ có đang chơi bóng đá ngoài sân không?' } ],
+    signals:['now','at present','at the moment','Look!','Listen!'],
+    note:'Một số động từ trạng thái như: like, love, want, know <b>không</b> dùng ở thì tiếp diễn.' },
+
+  { id:'t06', unit:4, unitName:'My Neighbourhood', title:'Comparative Adjectives', vi:'Tính từ so sánh hơn',
+    usage:'So sánh đặc điểm, tính chất khác nhau giữa hai người, sự vật hoặc hai địa điểm.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Tính từ ngắn (1 âm tiết)', f:'S1 + be + adj-er + than + S2' },
+      { k:'Tính từ dài (≥2 âm tiết)', f:'S1 + be + more + adj + than + S2' } ] } ],
+    examples:[
+      { en:'A house in the city is more expensive than a house in the countryside.', vi:'Một ngôi nhà ở thành phố thường đắt đỏ hơn một ngôi nhà ở nông thôn.' },
+      { en:'This path is narrower than that street.', vi:'Lối đi này hẹp hơn con phố kia.' } ],
+    signals:['than','more … than','adj-er … than'],
+    note:"Tính từ tận cùng bằng 'y' → đổi 'y' thành 'i' rồi thêm 'er' (noisy → noisier). Đặc biệt: <b>good → better, bad → worse</b>." },
+
+  { id:'t07', unit:5, unitName:'Natural Wonders of Viet Nam', title:'Countable & Uncountable Nouns', vi:'Danh từ đếm được & không đếm được',
+    usage:'Danh từ đếm được (a rock, islands) đếm được thành đơn vị riêng biệt. Danh từ không đếm được (water, milk, butter) chỉ chất liệu, khái niệm trừu tượng.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Đếm được', f:'a/an/số đếm + N (số ít) · N + s/es (số nhiều)' },
+      { k:'Không đếm được', f:'some/any/much/a little + N (luôn số ít)' } ] } ],
+    examples:[
+      { en:'There are many interesting activities at Ha Long Bay.', vi:'Có rất nhiều hoạt động thú vị ở Vịnh Hạ Long.' },
+      { en:'My mother uses butter to bake cakes.', vi:'Mẹ tôi dùng bơ để nướng bánh.' } ],
+    signals:['many','much','a lot of','a little','a few'],
+    note:'Không dùng số đếm trực tiếp trước danh từ không đếm được (Sai: two waters → Đúng: <b>two bottles of water</b>).' },
+
+  { id:'t08', unit:5, unitName:'Natural Wonders of Viet Nam', title:"must / mustn't", vi:'Động từ khuyết thiếu: must / mustn’t',
+    usage:"must: diễn tả sự bắt buộc, cần thiết. mustn't: sự cấm đoán, không được phép.",
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'S + must / mustn’t + V(bare)' } ] } ],
+    examples:[
+      { en:'You must leave the hotel room before 12 o’clock.', vi:'Bạn bắt buộc phải trả phòng khách sạn trước 12 giờ.' },
+      { en:"You mustn't make noise in the museum.", vi:'Bạn tuyệt đối không được làm ồn trong bảo tàng.' } ],
+    signals:['must','mustn’t'],
+    note:"<b>mustn't</b> là cấm đoán hoàn toàn — khác với 'không cần thiết' (diễn tả bằng don't have to)." },
+
+  { id:'t09', unit:6, unitName:'Our Tet Holiday', title:"should / shouldn't", vi:'Động từ khuyết thiếu: should / shouldn’t',
+    usage:'Đưa ra lời khuyên, ý kiến nên hay không nên làm gì trong một tình huống cụ thể.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'S + should / shouldn’t + V(bare)' } ] } ],
+    examples:[
+      { en:'Children should behave well at Tet.', vi:'Trẻ em nên cư xử ngoan ngoãn vào dịp Tết.' },
+      { en:"We shouldn't break anything during Tet.", vi:'Chúng ta không nên làm đổ vỡ đồ đạc gì trong dịp Tết.' } ],
+    signals:['should','shouldn’t'],
+    note:"Đây là lời khuyên mang tính tự nguyện, không mang tính bắt buộc mạnh như <b>must</b>." },
+
+  { id:'t10', unit:6, unitName:'Our Tet Holiday', title:'some / any', vi:'Từ chỉ số lượng: some / any',
+    usage:'Nói về một lượng không xác định của danh từ số nhiều hoặc danh từ không đếm được.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'some', f:'câu khẳng định · lời mời lịch sự' },
+      { k:'any', f:'câu phủ định · câu hỏi' } ] } ],
+    examples:[
+      { en:'My mother bought some fruits.', vi:'Mẹ tôi đã mua một ít trái cây.' },
+      { en:'Do you have any sugar left?', vi:'Bạn còn chút đường nào không?' } ],
+    signals:['some','any'],
+    note:"Câu mời lịch sự (Would you like some tea?) vẫn dùng <b>some</b> dù là câu hỏi, vì mang tính đề nghị." },
+
+  { id:'t11', unit:7, unitName:'Television', title:'Wh-questions', vi:'Từ để hỏi (Wh-questions)',
+    usage:'Bắt đầu câu hỏi tìm kiếm thông tin cụ thể: When, Where, Who, Why, What, How often.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'Wh-word + trợ động từ + S + V ... ?' } ] } ],
+    examples:[
+      { en:'What is your favourite TV programme?', vi:'Chương trình truyền hình yêu thích của bạn là gì?' },
+      { en:'How often do you watch football on TV?', vi:'Bạn có thường xuyên xem bóng đá trên tivi không?' } ],
+    signals:['When','Where','Who','Why','What','How often'],
+    note:'Xác định đúng thông tin cần hỏi để chọn từ để hỏi phù hợp (hỏi lý do dùng Why, hỏi thời gian dùng When).' },
+
+  { id:'t12', unit:7, unitName:'Television', title:'Conjunctions: and, but, so', vi:'Liên từ trong câu ghép',
+    usage:'Liên kết các mệnh đề độc lập: and (thêm thông tin), but (tương phản), so (kết quả).',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'Mệnh đề 1 , + and/but/so + Mệnh đề 2' } ] } ],
+    examples:[
+      { en:'I like watching animal programmes, but my brother likes sports.', vi:'Tôi thích xem chương trình động vật, nhưng em trai tôi thích thể thao.' },
+      { en:'We trained very hard, so we won the game.', vi:'Chúng tôi đã tập luyện rất chăm chỉ, vì vậy chúng tôi đã thắng trận đấu.' } ],
+    signals:['and','but','so'],
+    note:"Luôn có dấu phẩy ',' đứng trước <b>but</b> và <b>so</b> khi nối hai mệnh đề độc lập." },
+
+  { id:'t13', unit:8, unitName:'Sports and Games', title:'Past Simple', vi:'Thì Quá khứ đơn',
+    usage:'Diễn tả một hành động đã xảy ra và kết thúc hoàn toàn trong quá khứ.',
+    structure:[
+      { label:'Động từ To be', rows:[
+        { k:'Khẳng định (+)', f:'S + was/were' },
+        { k:'Phủ định (−)', f:'S + was/were + not' },
+        { k:'Nghi vấn (?)', f:'Was/Were + S ... ?' } ] },
+      { label:'Động từ thường', rows:[
+        { k:'Khẳng định (+)', f:'S + V2 (bất quy tắc) / V-ed (quy tắc)' },
+        { k:'Phủ định (−)', f:"S + didn't + V(bare)" },
+        { k:'Nghi vấn (?)', f:'Did + S + V(bare) ?' } ] } ],
+    examples:[
+      { en:'I played table tennis with Duy yesterday and I won!', vi:'Hôm qua tôi đã chơi bóng bàn với Duy và tôi đã thắng!' },
+      { en:'Did you watch the match on TV last night?', vi:'Bạn có xem trận đấu trên tivi tối qua không?' } ],
+    signals:['yesterday','last week/month/year','... ago'],
+    note:'Học kỹ bảng động từ bất quy tắc (win → won, go → went, have → had) vì chúng không theo công thức +ed.' },
+
+  { id:'t14', unit:8, unitName:'Sports and Games', title:'Imperatives', vi:'Câu mệnh lệnh',
+    usage:'Ra lệnh, yêu cầu, hoặc hướng dẫn trực tiếp ai đó thực hiện việc gì.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Khẳng định', f:'V(bare) + O !' },
+      { k:'Phủ định', f:"Don't + V(bare) + O !" } ] } ],
+    examples:[
+      { en:'Please keep quiet in the library!', vi:'Xin hãy giữ trật tự trong thư viện!' },
+      { en:"Don't speak loudly at the gym.", vi:'Đừng nói chuyện to tại phòng tập.' } ],
+    signals:['Please …','Don’t …'],
+    note:"Câu mệnh lệnh không có chủ ngữ (ngầm hiểu là 'you'). Thêm <b>please</b> đầu/cuối câu để lịch sự hơn." },
+
+  { id:'t15', unit:9, unitName:'Cities of the World', title:'Possessive Adjectives', vi:'Tính từ sở hữu',
+    usage:'Chỉ quyền sở hữu của một người/vật đối với cái gì; luôn có danh từ theo sau.',
+    structure:[ { label:'Bảng từ', rows:[
+      { k:'Đại từ → TT sở hữu', f:'I→my · you→your · he→his · she→her · it→its · we→our · they→their' } ] } ],
+    examples:[
+      { en:'This is my new bicycle. It is green.', vi:'Đây là chiếc xe đạp mới của tôi. Nó màu xanh.' },
+      { en:'Their house is close to the park.', vi:'Nhà của họ ở gần công viên.' } ],
+    signals:['my','your','his','her','its','our','their'],
+    note:"Không nhầm tính từ sở hữu <b>its</b> (của nó) với từ viết tắt <b>it's</b> (it is)." },
+
+  { id:'t16', unit:9, unitName:'Cities of the World', title:'Possessive Pronouns', vi:'Đại từ sở hữu',
+    usage:'Chỉ sự sở hữu nhưng đứng độc lập, không có danh từ theo sau — tránh lặp từ.',
+    structure:[ { label:'Bảng từ', rows:[
+      { k:'TT sở hữu → ĐT sở hữu', f:'my→mine · your→yours · his→his · her→hers · its→its · our→ours · their→theirs' } ] } ],
+    examples:[
+      { en:'This book is mine, not yours.', vi:'Cuốn sách này là của tôi, không phải của bạn.' },
+      { en:'The map is theirs.', vi:'Bản đồ đó là của họ.' } ],
+    signals:['mine','yours','his','hers','ours','theirs'],
+    note:"Học sinh hay viết sai thêm 's' vào <b>mine</b> — 'mine' không bao giờ thêm s." },
+
+  { id:'t17', unit:10, unitName:'Our Houses in the Future', title:'Future Simple', vi:'Thì Tương lai đơn',
+    usage:'Diễn tả một hành động hoặc sự kiện sẽ xảy ra trong tương lai, hoặc dự đoán một sự việc.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Khẳng định (+)', f:'S + will + V(bare)' },
+      { k:'Phủ định (−)', f:"S + won't + V(bare)" },
+      { k:'Nghi vấn (?)', f:'Will + S + V(bare) ?' } ] } ],
+    examples:[
+      { en:'My house in the future will be in the mountains.', vi:'Ngôi nhà của tôi trong tương lai sẽ ở trên núi.' },
+      { en:'Will robots look after our children?', vi:'Rô-bốt liệu có chăm sóc con cái của chúng ta không?' } ],
+    signals:['in the future','tomorrow','next week/month/year'],
+    note:'will + V(bare) không đổi theo chủ ngữ.' },
+
+  { id:'t18', unit:10, unitName:'Our Houses in the Future', title:'might', vi:'Động từ khuyết thiếu: might',
+    usage:'Diễn tả một khả năng có thể xảy ra ở tương lai nhưng người nói không chắc chắn (độ tin cậy thấp hơn will).',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'S + might / might not + V(bare)' } ] } ],
+    examples:[
+      { en:'We might go to the Moon for a holiday.', vi:'Chúng ta có thể sẽ đi du lịch trên Mặt Trăng (chưa chắc chắn).' },
+      { en:'They might not live in flying houses.', vi:'Họ có thể sẽ không sống trong những ngôi nhà bay.' } ],
+    signals:['might','might not','maybe','perhaps'],
+    note:"Dạng phủ định là <b>might not</b> — không viết tắt thành 'mightn't' trong văn viết của lớp 6." },
+
+  { id:'t19', unit:11, unitName:'Our Greener World', title:'a / an / the', vi:'Mạo từ: a, an, the',
+    usage:"a/an: trước danh từ đếm được số ít, nhắc đến lần đầu. 'an' đứng trước âm nguyên âm. the: danh từ đã nhắc trước đó, hoặc vật duy nhất.",
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'a/an/the + Noun' } ] } ],
+    examples:[
+      { en:'My father is a doctor. He works in a hospital.', vi:'Bố tôi là một bác sĩ. Ông làm việc ở một bệnh viện.' },
+      { en:'The Sun keeps the Earth warm.', vi:'Mặt Trời giữ ấm cho Trái Đất.' } ],
+    signals:['a','an','the'],
+    note:"Dùng 'an' theo <b>cách phát âm</b> chứ không theo chữ viết (an hour vì 'h' câm, a uniform vì 'u' đọc là /juː/)." },
+
+  { id:'t20', unit:11, unitName:'Our Greener World', title:'First Conditional', vi:'Câu điều kiện loại 1',
+    usage:'Diễn tả một điều kiện có thực và hành động có thể xảy ra ở hiện tại hoặc tương lai.',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Cấu trúc', f:'If + S + V (hiện tại đơn), S + will/won’t + V(bare)' } ] } ],
+    examples:[
+      { en:'If we use less paper, we will save a lot of trees.', vi:'Nếu chúng ta dùng ít giấy hơn, chúng ta sẽ cứu được rất nhiều cây.' },
+      { en:'If more people cycle, the air will be cleaner.', vi:'Nếu nhiều người đi xe đạp hơn, không khí sẽ trong lành hơn.' } ],
+    signals:['if','unless'],
+    note:"Lỗi phổ biến: đặt 'will' trong mệnh đề If (Sai: If it will be sunny... → Đúng: <b>If it is sunny...</b>)." },
+
+  { id:'t21', unit:12, unitName:'Robots', title:'Superlative Adjectives', vi:'So sánh nhất của tính từ',
+    usage:'So sánh một đối tượng vượt trội nhất so với cả nhóm (từ 3 đối tượng trở lên).',
+    structure:[ { label:'Công thức', rows:[
+      { k:'Tính từ ngắn', f:'S + be + the + adj-est' },
+      { k:'Tính từ dài', f:'S + be + the most + adj' } ] } ],
+    examples:[
+      { en:'Shifa is the smartest doctor robot in this show.', vi:'Shifa là rô-bốt bác sĩ thông minh nhất trong triển lãm này.' },
+      { en:'This robot is the cheapest in our shop.', vi:'Con rô-bốt này là rẻ nhất trong cửa hàng chúng tôi.' } ],
+    signals:['the … est','the most …'],
+    note:"Tính từ ngắn dạng 'phụ âm - nguyên âm - phụ âm' → nhân đôi phụ âm cuối trước khi thêm 'est' (big → the biggest, hot → the hottest)." },
+];
+
+/* =========================================================================
+   BANK TỪ VỰNG DÙNG CHUNG CHO BỘ SINH CÂU HỎI (BÀI TẬP)
+   ========================================================================= */
+
+const BANK = {
+  subjects: [
+    { text:'I', cat:'1sg' }, { text:'You', cat:'other' }, { text:'He', cat:'3sg' },
+    { text:'She', cat:'3sg' }, { text:'We', cat:'other' }, { text:'They', cat:'other' },
+    { text:'My father', cat:'3sg' }, { text:'My mother', cat:'3sg' }, { text:'My sister', cat:'3sg' },
+    { text:'Lan', cat:'3sg', proper:true }, { text:'Minh', cat:'3sg', proper:true },
+    { text:'The students', cat:'other' }, { text:'Our teacher', cat:'3sg' },
+  ],
+  verbs: [
+    { v1:'play', v1s:'plays', v2:'played', v3:'played', ving:'playing', obj:'football', vi:'chơi', type:'regular' },
+    { v1:'watch', v1s:'watches', v2:'watched', v3:'watched', ving:'watching', obj:'TV', vi:'xem', type:'regular' },
+    { v1:'walk', v1s:'walks', v2:'walked', v3:'walked', ving:'walking', obj:'to school', vi:'đi bộ', type:'regular' },
+    { v1:'clean', v1s:'cleans', v2:'cleaned', v3:'cleaned', ving:'cleaning', obj:'the house', vi:'dọn dẹp', type:'regular' },
+    { v1:'study', v1s:'studies', v2:'studied', v3:'studied', ving:'studying', obj:'English', vi:'học', type:'regular' },
+    { v1:'visit', v1s:'visits', v2:'visited', v3:'visited', ving:'visiting', obj:'her grandmother', vi:'thăm', type:'regular' },
+    { v1:'cook', v1s:'cooks', v2:'cooked', v3:'cooked', ving:'cooking', obj:'dinner', vi:'nấu ăn', type:'regular' },
+    { v1:'listen', v1s:'listens', v2:'listened', v3:'listened', ving:'listening', obj:'to music', vi:'nghe', type:'regular' },
+    { v1:'go', v1s:'goes', v2:'went', v3:'gone', ving:'going', obj:'to school', vi:'đi', type:'irregular' },
+    { v1:'do', v1s:'does', v2:'did', v3:'done', ving:'doing', obj:'homework', vi:'làm', type:'irregular' },
+    { v1:'have', v1s:'has', v2:'had', v3:'had', ving:'having', obj:'breakfast', vi:'ăn/có', type:'irregular' },
+    { v1:'read', v1s:'reads', v2:'read', v3:'read', ving:'reading', obj:'a book', vi:'đọc', type:'irregular' },
+    { v1:'write', v1s:'writes', v2:'wrote', v3:'written', ving:'writing', obj:'a letter', vi:'viết', type:'irregular' },
+    { v1:'win', v1s:'wins', v2:'won', v3:'won', ving:'winning', obj:'the game', vi:'thắng', type:'irregular' },
+    { v1:'swim', v1s:'swims', v2:'swam', v3:'swum', ving:'swimming', obj:'in the pool', vi:'bơi', type:'irregular' },
+  ],
+  adjShort: [
+    { pos:'tall', comp:'taller', sup:'tallest', vi:'cao' },
+    { pos:'small', comp:'smaller', sup:'smallest', vi:'nhỏ' },
+    { pos:'big', comp:'bigger', sup:'biggest', vi:'to' },
+    { pos:'hot', comp:'hotter', sup:'hottest', vi:'nóng' },
+    { pos:'fast', comp:'faster', sup:'fastest', vi:'nhanh' },
+    { pos:'cheap', comp:'cheaper', sup:'cheapest', vi:'rẻ' },
+    { pos:'old', comp:'older', sup:'oldest', vi:'già/cũ' },
+    { pos:'long', comp:'longer', sup:'longest', vi:'dài' },
+    { pos:'short', comp:'shorter', sup:'shortest', vi:'ngắn/thấp' },
+    { pos:'noisy', comp:'noisier', sup:'noisiest', vi:'ồn ào' },
+    { pos:'busy', comp:'busier', sup:'busiest', vi:'bận rộn' },
+    { pos:'happy', comp:'happier', sup:'happiest', vi:'vui vẻ' },
+    { pos:'good', comp:'better', sup:'best', vi:'tốt', irregular:true },
+    { pos:'bad', comp:'worse', sup:'worst', vi:'tệ', irregular:true },
+  ],
+  adjLong: [
+    { pos:'expensive', comp:'more expensive', sup:'most expensive', vi:'đắt' },
+    { pos:'beautiful', comp:'more beautiful', sup:'most beautiful', vi:'đẹp' },
+    { pos:'interesting', comp:'more interesting', sup:'most interesting', vi:'thú vị' },
+    { pos:'comfortable', comp:'more comfortable', sup:'most comfortable', vi:'thoải mái' },
+    { pos:'modern', comp:'more modern', sup:'most modern', vi:'hiện đại' },
+    { pos:'popular', comp:'more popular', sup:'most popular', vi:'phổ biến' },
+    { pos:'dangerous', comp:'more dangerous', sup:'most dangerous', vi:'nguy hiểm' },
+    { pos:'difficult', comp:'more difficult', sup:'most difficult', vi:'khó' },
+  ],
+  countable: ['book','apple','chair','dog','computer','box','city','student','bike','pencil'],
+  uncountable: ['water','rice','sugar','milk','money','butter','bread','information'],
+  places: [
+    { obj:'The cat', verb:'is', place:'under the table', vi:'con mèo / dưới bàn' },
+    { obj:'A lamp', verb:'is', place:'next to the bed', vi:'cái đèn / cạnh giường' },
+    { obj:'The dog', verb:'is', place:'behind the door', vi:'con chó / sau cánh cửa' },
+    { obj:'The book', verb:'is', place:'on the shelf', vi:'quyển sách / trên giá sách' },
+    { obj:'The keys', verb:'are', place:'in the drawer', vi:'chìa khoá / trong ngăn kéo' },
+    { obj:'The bag', verb:'is', place:'in front of the sofa', vi:'cái túi / trước ghế sofa' },
+    { obj:'My house', verb:'is', place:'between the bakery and the bank', vi:'nhà tôi / giữa tiệm bánh và ngân hàng' },
+  ],
+  possessiveNames: ["Lan's", "Minh's", 'my mother’s', 'his sister’s', 'the teacher’s', 'my brother’s'],
+  modal: {
+    must: ['wear a helmet', 'keep quiet in the library', 'do your homework', 'arrive on time', 'follow the rules'],
+    mustnt: ['smoke here', 'touch that wire', 'run in the corridor', 'be late for class', 'make noise in the museum'],
+    should: ['drink more water', 'go to bed early', 'ask the teacher for help', 'practise English every day', 'eat more vegetables'],
+    shouldnt: ['eat too much sugar', 'stay up too late', 'waste water', 'be rude to your friends', 'skip breakfast'],
+    might: ['rain tomorrow', 'go to the beach this summer', 'be at home now', 'come to the party', 'win the next match'],
+  },
+  conjunction: [
+    { a:'I like Math', b:'I like Music', c:'and', vi:'thêm ý' },
+    { a:'She is tired', b:'she keeps working', c:'but', vi:'tương phản' },
+    { a:'It rained heavily', b:'we stayed at home', c:'so', vi:'kết quả' },
+    { a:'He is young', b:'he is very strong', c:'but', vi:'tương phản' },
+    { a:'We trained hard', b:'we won the game', c:'so', vi:'kết quả' },
+    { a:'I finished my homework', b:'I watched TV', c:'and', vi:'thêm ý' },
+  ],
+  imperative: [
+    { v:'open', obj:'the door', vi:'mở cửa' },
+    { v:'close', obj:'your books', vi:'gấp sách lại' },
+    { v:'listen', obj:'carefully', vi:'lắng nghe cẩn thận' },
+    { v:'clean', obj:'the board', vi:'lau bảng' },
+    { v:'be', obj:'quiet', vi:'giữ yên lặng' },
+    { v:'touch', obj:'that wire', vi:'chạm vào dây điện', forbid:true },
+    { v:'run', obj:'in the corridor', vi:'chạy trong hành lang', forbid:true },
+    { v:'speak', obj:'loudly in the library', vi:'nói to trong thư viện', forbid:true },
+  ],
+  conditional: [
+    { ifPart:'we use less paper', mainSubj:'we', mainVerb:'save a lot of trees', vi:'dùng ít giấy hơn / cứu cây' },
+    { ifPart:'more people cycle', mainSubj:'the air', mainVerb:'be cleaner', vi:'nhiều người đạp xe / không khí sạch hơn' },
+    { ifPart:'it rains tomorrow', mainSubj:'we', mainVerb:'stay at home', vi:'trời mưa / ở nhà' },
+    { ifPart:'you study hard', mainSubj:'you', mainVerb:'pass the exam', vi:'học chăm / thi đậu' },
+    { ifPart:'she has free time', mainSubj:'she', mainVerb:'visit her grandmother', vi:'có thời gian rảnh / thăm bà' },
+  ],
+  whWords: [
+    { w:'When', vi:'khi nào', hint:'thời gian' },
+    { w:'Where', vi:'ở đâu', hint:'nơi chốn' },
+    { w:'Who', vi:'ai', hint:'người' },
+    { w:'Why', vi:'tại sao', hint:'lý do' },
+    { w:'What', vi:'cái gì', hint:'sự vật' },
+    { w:'How often', vi:'tần suất', hint:'mức độ thường xuyên' },
+  ],
+  articleNouns: [
+    { n:'apple', art:'an', vi:'quả táo' }, { n:'banana', art:'a', vi:'quả chuối' },
+    { n:'hour', art:'an', vi:'giờ' }, { n:'university', art:'a', vi:'trường đại học' },
+    { n:'umbrella', art:'an', vi:'cây dù' }, { n:'dog', art:'a', vi:'con chó' },
+    { n:'elephant', art:'an', vi:'con voi' }, { n:'car', art:'a', vi:'xe ô tô' },
+    { n:'orange', art:'an', vi:'quả cam' }, { n:'book', art:'a', vi:'quyển sách' },
+  ],
+};
+
+if (typeof module !== 'undefined') {
+  module.exports = { GRADE6_TOPICS, BANK };
+}
+if (typeof window !== 'undefined') {
+  // `const` ở top-level script KHÔNG tự trở thành thuộc tính của window,
+  // nên phải gán tường minh để các script khác (engine.js) truy cập được.
+  window.GRADE6_TOPICS = GRADE6_TOPICS;
+  window.BANK = BANK;
+}
+
+</script>
+<script>
+/* ================= ENGINE.JS (nhúng trực tiếp, không cần file ngoài) ================= */
+/* =========================================================================
+   ENGINE SINH CÂU HỎI — mỗi topic có 1 hàm gen(count) trả về mảng câu hỏi
+   Mỗi câu hỏi: { topicId, level, prompt, options[4], correct(index), explain }
+   level: 'basic' | 'advanced' | 'thinking'
+   ========================================================================= */
+
+(function (global) {
+  const B = global.BANK || (typeof require !== 'undefined' ? require('./data.js').BANK : null);
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
+  }
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+  function pickN(arr, n) { return shuffle(arr).slice(0, n); }
+  function uid() { return Math.random().toString(36).slice(2, 10); }
+
+  function makeMCQ({ topicId, level, prompt, correct, wrongPool, explain }) {
+    const wrongs = pickN(wrongPool.filter(w => w !== correct), 3);
+    while (wrongs.length < 3) wrongs.push(wrongs.length ? wrongs[0] + ' ' : correct + '_x');
+    const options = shuffle([correct, ...wrongs]);
+    return {
+      id: uid(), topicId, level, prompt,
+      options, correct: options.indexOf(correct), explain,
+    };
+  }
+
+  function amIsAre(cat) { return cat === '1sg' ? 'am' : cat === '3sg' ? 'is' : 'are'; }
+  function doesDo(cat) { return cat === '3sg' ? 'does' : 'do'; }
+  function subjText(s) { return s.text; }
+
+  const GENERATORS = {};
+
+  /* ---------- t01: Present Simple ---------- */
+  GENERATORS.t01 = function (n) {
+    const out = [];
+    const basicPool = ['plays', 'played', 'is playing', 'will play', 'to play'];
+    for (let i = 0; i < n; i++) {
+      const s = pick(B.subjects); const v = pick(B.verbs);
+      const roll = i % 3;
+      if (roll === 0) {
+        const correct = s.cat === '3sg' ? v.v1s : v.v1;
+        out.push(makeMCQ({
+          topicId: 't01', level: 'basic',
+          prompt: `${s.text} ___ ${v.obj} every day. <i>(${v.v1})</i>`,
+          correct, wrongPool: [v.v1, v.v1s, v.ving, v.v2],
+          explain: `Hiện tại đơn, chủ ngữ "${s.text}" ${s.cat === '3sg' ? '→ thêm s/es' : '→ giữ nguyên V1'}: <b>${correct}</b>.`,
+        }));
+      } else if (roll === 1) {
+        const aux = doesDo(s.cat);
+        const correct = `${aux} not ${v.v1}`;
+        out.push(makeMCQ({
+          topicId: 't01', level: 'advanced',
+          prompt: `${s.text} ___ ${v.obj} at the weekend. (phủ định của "${v.v1}")`,
+          correct, wrongPool: [`${aux} ${v.v1}`, `not ${aux} ${v.v1}`, `${aux === 'does' ? 'do' : 'does'} not ${v.v1}`],
+          explain: `Phủ định hiện tại đơn: S + do/does not + V(bare) → <b>${correct}</b>.`,
+        }));
+      } else {
+        const aux = doesDo(s.cat);
+        const correct = `${capFirst(aux)} ${s.text.toLowerCase() === 'i' ? 'I' : s.text.charAt(0).toLowerCase() + s.text.slice(1)} ${v.v1}`;
+        out.push(makeMCQ({
+          topicId: 't01', level: 'thinking',
+          prompt: `Đặt câu hỏi Yes/No cho câu: "${s.text} ${s.cat === '3sg' ? v.v1s : v.v1} ${v.obj} every day."`,
+          correct, wrongPool: [
+            `${capFirst(aux === 'does' ? 'do' : 'does')} ${s.text} ${v.v1}`,
+            `${capFirst(aux)} ${s.text} ${v.v1s}`,
+            `${s.text} ${aux} ${v.v1}`,
+          ],
+          explain: `Nghi vấn hiện tại đơn: Do/Does + S + V(bare)? → <b>${correct}?</b>`,
+        }));
+      }
+    }
+    return out;
+  };
+  function capFirst(str) { return str.charAt(0).toUpperCase() + str.slice(1); }
+
+  /* ---------- t02: Adverbs of Frequency ---------- */
+  GENERATORS.t02 = function (n) {
+    const out = [];
+    const advs = ['always', 'usually', 'often', 'sometimes', 'rarely', 'never'];
+    for (let i = 0; i < n; i++) {
+      const s = pick(B.subjects); const v = pick(B.verbs); const adv = pick(advs);
+      const roll = i % 3;
+      if (roll === 0) {
+        const correct = `${s.text} ${adv} ${s.cat === '3sg' ? v.v1s : v.v1} ${v.obj}.`;
+        out.push(makeMCQ({
+          topicId: 't02', level: 'basic',
+          prompt: `Sắp xếp đúng vị trí trạng từ "${adv}" với động từ thường:`,
+          correct, wrongPool: [
+            `${adv} ${s.text} ${s.cat === '3sg' ? v.v1s : v.v1} ${v.obj}.`,
+            `${s.text} ${s.cat === '3sg' ? v.v1s : v.v1} ${adv} ${v.obj}.`,
+            `${s.text} ${s.cat === '3sg' ? v.v1s : v.v1} ${v.obj} ${adv}.`,
+          ],
+          explain: `Trạng từ tần suất đứng TRƯỚC động từ thường: S + ${adv} + V.`,
+        }));
+      } else if (roll === 1) {
+        const be = amIsAre(s.cat);
+        const correct = `${s.text} ${be} ${adv} late.`;
+        out.push(makeMCQ({
+          topicId: 't02', level: 'advanced',
+          prompt: `Chọn câu đúng vị trí trạng từ với động từ "to be":`,
+          correct, wrongPool: [
+            `${s.text} ${adv} ${be} late.`,
+            `${adv} ${s.text} ${be} late.`,
+            `${s.text} ${be} late ${adv}.`,
+          ],
+          explain: `Trạng từ tần suất đứng SAU động từ to be: S + am/is/are + ${adv}.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't02', level: 'thinking',
+          prompt: `Câu nào viết SAI vị trí trạng từ tần suất?`,
+          correct: `He usually is friendly.`,
+          wrongPool: [`He is usually friendly.`, `She always drinks tea.`, `They are never late.`],
+          explain: `Sai vì trạng từ đặt trước "to be". Đúng phải là: He <b>is usually</b> friendly.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t03: Possessive Case ---------- */
+  GENERATORS.t03 = function (n) {
+    const out = [];
+    const owners = [['Lan', "Lan's"], ['Minh', "Minh's"], ['my mother', 'my mother’s'], ['his sister', 'his sister’s'], ['the teacher', 'the teacher’s'], ['my brother', 'my brother’s']];
+    const things = ['book', 'bike', 'room', 'bag', 'pencil case', 'phone'];
+    for (let i = 0; i < n; i++) {
+      const [owner, poss] = pick(owners); const thing = pick(things);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't03', level: 'basic',
+          prompt: `This is the ${thing} of ${owner}. → This is ___ ${thing}.`,
+          correct: poss, wrongPool: [`${owner}'s`.replace("'", '’').replace('’s’s','’s'), `${owner} is`, `${owner}s`, owner],
+          explain: `Sở hữu cách: N (người) + 's + N (vật) → <b>${poss} ${thing}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't03', level: 'advanced',
+          prompt: `Chọn câu viết ĐÚNG:`,
+          correct: `This is ${poss} ${thing}.`,
+          wrongPool: [`This is ${owner} ${thing}.`, `This is ${owner}s ${thing}.`, `This ${thing} is ${owner}.`],
+          explain: `Đúng ngữ pháp sở hữu cách: <b>${poss} ${thing}</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't03', level: 'thinking',
+          prompt: `Câu nào dùng SAI 's (nhầm sở hữu cách với "is")?`,
+          correct: `He's book is on the table.`,
+          wrongPool: [`He's a student.`, `${poss} ${thing} is new.`, `This is her book.`],
+          explain: `"He's book" sai vì 's ở đây bị hiểu nhầm là "is". Phải viết: <b>His book</b>.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t04: Prepositions of Place ---------- */
+  GENERATORS.t04 = function (n) {
+    const out = [];
+    const preps = ['in', 'on', 'under', 'behind', 'next to', 'in front of', 'between'];
+    const PREP_RE = /^(in front of|next to|between|under|behind|on|in)/;
+    for (let i = 0; i < n; i++) {
+      const p = pick(B.places);
+      const correctPrep = p.place.match(PREP_RE)[0];
+      const restOfPlace = p.place.replace(PREP_RE, '').trim();
+      const otherVerb = p.verb === 'is' ? 'are' : 'is';
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't04', level: 'basic',
+          prompt: `${p.obj} ${p.verb} ___ ${restOfPlace}.`,
+          correct: correctPrep,
+          wrongPool: preps.filter(x => x !== correctPrep),
+          explain: `Đúng vị trí: <b>${p.obj} ${p.verb} ${p.place}.</b>`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't04', level: 'advanced',
+          prompt: `Chọn câu miêu tả ĐÚNG vị trí: "${p.vi}"`,
+          correct: `${p.obj} ${p.verb} ${p.place}.`,
+          wrongPool: [
+            `${p.obj} ${otherVerb} ${p.place}.`,
+            `${p.obj} ${p.verb} ${pick(preps.filter(x => x !== correctPrep))} ${restOfPlace}.`,
+            `${p.obj} ${restOfPlace}.`,
+          ],
+          explain: `Cấu trúc: S + be + giới từ + nơi chốn → <b>${p.obj} ${p.verb} ${p.place}.</b>`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't04', level: 'thinking',
+          prompt: `"Giữa hai cái bàn" dịch sang tiếng Anh đúng phải dùng giới từ nào?`,
+          correct: 'between the two tables',
+          wrongPool: ['under the two tables', 'next to the two tables', 'in the two tables'],
+          explain: `"between" luôn đi với cấu trúc "between A and B / between the two ...".`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t05: Present Continuous ---------- */
+  GENERATORS.t05 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const s = pick(B.subjects); const v = pick(B.verbs);
+      const be = amIsAre(s.cat);
+      const roll = i % 3;
+      if (roll === 0) {
+        const correct = `${be} ${v.ving}`;
+        out.push(makeMCQ({
+          topicId: 't05', level: 'basic',
+          prompt: `Look! ${s.text} ___ ${v.obj} right now. <i>(${v.v1})</i>`,
+          correct, wrongPool: [`${v.v1s}`, `${v.v1}`, `${be} ${v.v1}`],
+          explain: `Hiện tại tiếp diễn: S + am/is/are + V-ing → <b>${correct}</b>.`,
+        }));
+      } else if (roll === 1) {
+        const correct = `${be} not ${v.ving}`;
+        out.push(makeMCQ({
+          topicId: 't05', level: 'advanced',
+          prompt: `${s.text} ___ ${v.obj} at the moment. (phủ định)`,
+          correct, wrongPool: [`${be} ${v.ving} not`, `not ${be} ${v.ving}`, `${be} ${v.v1}`],
+          explain: `Phủ định hiện tại tiếp diễn: S + am/is/are + not + V-ing → <b>${correct}</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't05', level: 'thinking',
+          prompt: `Câu nào SAI vì dùng động từ trạng thái ở thì tiếp diễn?`,
+          correct: `I am knowing your sister.`,
+          wrongPool: [`I know your sister.`, `She is cooking dinner.`, `They are playing football.`],
+          explain: `"know" là động từ trạng thái, không dùng ở tiếp diễn. Đúng: <b>I know your sister.</b>`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t06: Comparative ---------- */
+  GENERATORS.t06 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const short = i % 2 === 0; const adj = pick(short ? B.adjShort : B.adjLong);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't06', level: 'basic',
+          prompt: `This bag is ___ than that one. <i>(${adj.pos})</i>`,
+          correct: adj.comp, wrongPool: [adj.pos, adj.sup, adj.pos + 'er more'],
+          explain: `So sánh hơn: ${short ? 'tính từ ngắn + er' : 'more + tính từ dài'} → <b>${adj.comp}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't06', level: 'advanced',
+          prompt: `Chọn câu so sánh hơn ĐÚNG với tính từ "${adj.pos}":`,
+          correct: `A is ${adj.comp} than B.`,
+          wrongPool: [`A is more ${adj.pos} than B.`, `A is ${adj.pos}er more than B.`, `A is the ${adj.comp} than B.`].filter((v,idx,arr)=>arr.indexOf(v)===idx),
+          explain: `Với tính từ "${adj.pos}" dạng đúng là <b>${adj.comp}</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't06', level: 'thinking',
+          prompt: `"good" và "bad" so sánh hơn là gì (tính từ đặc biệt)?`,
+          correct: 'better / worse',
+          wrongPool: ['gooder / badder', 'more good / more bad', 'goodest / baddest'],
+          explain: `good → better, bad → worse (so sánh bất quy tắc).`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t07: Countable & Uncountable ---------- */
+  GENERATORS.t07 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const roll = i % 3;
+      if (roll === 0) {
+        const noun = pick(B.countable);
+        out.push(makeMCQ({
+          topicId: 't07', level: 'basic',
+          prompt: `There are many ___ on the table. <i>(${noun})</i>`,
+          correct: noun + 's', wrongPool: [noun, 'much ' + noun, noun + 'es'],
+          explain: `Danh từ đếm được số nhiều thêm -s: <b>${noun}s</b>.`,
+        }));
+      } else if (roll === 1) {
+        const noun = pick(B.uncountable);
+        out.push(makeMCQ({
+          topicId: 't07', level: 'advanced',
+          prompt: `We don't have ___ ${noun} left. (không đếm được, câu phủ định)`,
+          correct: 'much', wrongPool: ['many', 'a', 'some'],
+          explain: `Với danh từ không đếm được trong câu phủ định/nghi vấn, dùng <b>much</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't07', level: 'thinking',
+          prompt: `Câu nào viết SAI về danh từ không đếm được?`,
+          correct: `She bought two waters.`,
+          wrongPool: [`She bought two bottles of water.`, `There is some rice in the bowl.`, `We need a little sugar.`],
+          explain: `"water" không đếm được, không dùng "two waters". Đúng: <b>two bottles of water</b>.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t08: must/mustn't ---------- */
+  GENERATORS.t08 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const roll = i % 3;
+      if (roll === 0) {
+        const act = pick(B.modal.must);
+        out.push(makeMCQ({
+          topicId: 't08', level: 'basic',
+          prompt: `It is a rule. You ___ ${act}.`,
+          correct: 'must', wrongPool: ['mustn’t', 'should', 'might'],
+          explain: `Diễn tả sự bắt buộc → dùng <b>must</b>.`,
+        }));
+      } else if (roll === 1) {
+        const act = pick(B.modal.mustnt);
+        out.push(makeMCQ({
+          topicId: 't08', level: 'advanced',
+          prompt: `It is forbidden. You ___ ${act}.`,
+          correct: 'mustn’t', wrongPool: ['must', 'don’t must', 'not must'],
+          explain: `Diễn tả sự cấm đoán → dùng <b>mustn't</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't08', level: 'thinking',
+          prompt: `"Bạn không cần phải mang ô hôm nay" (không bắt buộc, KHÔNG phải cấm) — chọn câu đúng nghĩa:`,
+          correct: `You don't have to bring an umbrella today.`,
+          wrongPool: [`You mustn't bring an umbrella today.`, `You must bring an umbrella today.`, `You shouldn't bring an umbrella today.`],
+          explain: `"mustn't" = cấm, khác với "không cần thiết" = <b>don't have to</b>.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t09: should/shouldn't ---------- */
+  GENERATORS.t09 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const roll = i % 3;
+      if (roll === 0) {
+        const act = pick(B.modal.should);
+        out.push(makeMCQ({
+          topicId: 't09', level: 'basic',
+          prompt: `That's good advice. You ___ ${act}.`,
+          correct: 'should', wrongPool: ['shouldn’t', 'must', 'mustn’t'],
+          explain: `Lời khuyên nên làm → dùng <b>should</b>.`,
+        }));
+      } else if (roll === 1) {
+        const act = pick(B.modal.shouldnt);
+        out.push(makeMCQ({
+          topicId: 't09', level: 'advanced',
+          prompt: `That's bad for your health. You ___ ${act}.`,
+          correct: 'shouldn’t', wrongPool: ['should', 'don’t should', 'not should'],
+          explain: `Lời khuyên không nên làm → dùng <b>shouldn't</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't09', level: 'thinking',
+          prompt: `Phân biệt "should" và "must": câu nào mang tính BẮT BUỘC hơn?`,
+          correct: `You must wear a seatbelt.`,
+          wrongPool: [`You should wear a seatbelt.`, `You might wear a seatbelt.`, `You could wear a seatbelt.`],
+          explain: `"must" diễn tả sự bắt buộc mạnh hơn "should" (chỉ là lời khuyên).`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t10: some/any ---------- */
+  GENERATORS.t10 = function (n) {
+    const out = [];
+    const nouns = [...B.countable, ...B.uncountable];
+    for (let i = 0; i < n; i++) {
+      const noun = pick(nouns);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't10', level: 'basic',
+          prompt: `My mother bought ___ ${noun}. (câu khẳng định)`,
+          correct: 'some', wrongPool: ['any', 'much', 'a'],
+          explain: `Câu khẳng định → dùng <b>some</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't10', level: 'advanced',
+          prompt: `Do you have ___ ${noun}? (câu hỏi)`,
+          correct: 'any', wrongPool: ['some', 'much', 'many'],
+          explain: `Câu hỏi thường → dùng <b>any</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't10', level: 'thinking',
+          prompt: `"Would you like ___ tea?" — đây là lời mời lịch sự, chọn từ đúng dù là câu hỏi:`,
+          correct: 'some', wrongPool: ['any', 'much', 'a'],
+          explain: `Lời mời lịch sự vẫn dùng <b>some</b> dù ở dạng câu hỏi.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t11: Wh-questions ---------- */
+  GENERATORS.t11 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const wh = pick(B.whWords);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't11', level: 'basic',
+          prompt: `___ do you live? (hỏi ${wh.hint === 'nơi chốn' ? 'nơi chốn' : 'thông tin phù hợp'}) — Gợi ý: hỏi nơi ở`,
+          correct: 'Where', wrongPool: ['When', 'Who', 'Why'],
+          explain: `Hỏi nơi chốn → dùng <b>Where</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't11', level: 'advanced',
+          prompt: `"${wh.w}" dùng để hỏi về: ___`,
+          correct: wh.vi, wrongPool: shuffle(B.whWords.map(x => x.vi)).filter(v => v !== wh.vi).slice(0, 3),
+          explain: `<b>${wh.w}</b> dùng để hỏi về ${wh.vi}.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't11', level: 'thinking',
+          prompt: `Câu trả lời "Because I was ill." phù hợp với câu hỏi bắt đầu bằng từ để hỏi nào?`,
+          correct: 'Why', wrongPool: ['When', 'Where', 'What'],
+          explain: `Trả lời bắt đầu bằng "Because" (lý do) → câu hỏi dùng <b>Why</b>.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t12: Conjunctions ---------- */
+  GENERATORS.t12 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const cj = pick(B.conjunction);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't12', level: 'basic',
+          prompt: `${cj.a}, ___ ${cj.b}.`,
+          correct: cj.c, wrongPool: ['and', 'but', 'so'].filter(x => x !== cj.c),
+          explain: `Mối quan hệ giữa hai vế là "${cj.vi}" → dùng <b>${cj.c}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't12', level: 'advanced',
+          prompt: `Chọn câu viết ĐÚNG dấu câu:`,
+          correct: `${cj.a}, ${cj.c} ${cj.b}.`,
+          wrongPool: [`${cj.a} ${cj.c} ${cj.b}.`, `${cj.a}, ${cj.c}, ${cj.b}.`, `${cj.a}. ${cj.c} ${cj.b}.`],
+          explain: `Luôn có dấu phẩy trước "but/so" khi nối hai mệnh đề độc lập.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't12', level: 'thinking',
+          prompt: `"Vì vậy" trong tiếng Anh dùng liên từ nào để nối hai mệnh đề chỉ kết quả?`,
+          correct: 'so', wrongPool: ['and', 'but', 'because'],
+          explain: `"so" diễn tả kết quả (vì vậy).`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t13: Past Simple ---------- */
+  GENERATORS.t13 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const s = pick(B.subjects); const v = pick(B.verbs);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't13', level: 'basic',
+          prompt: `${s.text} ___ ${v.obj} yesterday. <i>(${v.v1})</i>`,
+          correct: v.v2, wrongPool: [v.v1, v.v1s, v.ving, v.v3],
+          explain: `Quá khứ đơn: S + V2 → <b>${v.v2}</b> (${v.type === 'irregular' ? 'bất quy tắc' : 'quy tắc + ed'}).`,
+        }));
+      } else if (roll === 1) {
+        const correct = `didn't ${v.v1}`;
+        out.push(makeMCQ({
+          topicId: 't13', level: 'advanced',
+          prompt: `${s.text} ___ ${v.obj} last week. (phủ định)`,
+          correct, wrongPool: [`did not ${v.v2}`, `not ${v.v1}`, `doesn't ${v.v1}`],
+          explain: `Phủ định quá khứ đơn: S + didn't + V(bare) → <b>${correct}</b>.`,
+        }));
+      } else {
+        const correct = `Did ${s.text.toLowerCase() === 'i' ? 'I' : s.text.charAt(0).toLowerCase() + s.text.slice(1)} ${v.v1}`;
+        out.push(makeMCQ({
+          topicId: 't13', level: 'thinking',
+          prompt: `Đặt câu hỏi Yes/No cho: "${s.text} ${v.v2} ${v.obj} yesterday."`,
+          correct, wrongPool: [`${s.text} did ${v.v1}`, `Did ${s.text} ${v.v2}`, `Does ${s.text} ${v.v1}`],
+          explain: `Nghi vấn quá khứ đơn: Did + S + V(bare)? → <b>${correct}?</b>`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t14: Imperatives ---------- */
+  GENERATORS.t14 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const im = pick(B.imperative);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't14', level: 'basic',
+          prompt: im.forbid ? `(cấm) ___ ${im.obj}!` : `(yêu cầu) ___ ${im.obj}!`,
+          correct: im.forbid ? `Don't ${im.v}` : capFirst(im.v), wrongPool: [`${im.v}s`, `To ${im.v}`, `${capFirst(im.v)}ing`],
+          explain: `Câu mệnh lệnh dùng V(bare) ở đầu câu${im.forbid ? ", phủ định thêm Don't" : ''}: <b>${im.forbid ? `Don't ${im.v}` : capFirst(im.v)} ${im.obj}!</b>`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't14', level: 'advanced',
+          prompt: `Chọn câu mệnh lệnh lịch sự ĐÚNG:`,
+          correct: `Please ${im.v} ${im.obj}.`,
+          wrongPool: [`Please to ${im.v} ${im.obj}.`, `You please ${im.v} ${im.obj}.`, `${im.v} please ${im.obj}s.`],
+          explain: `Thêm "please" đầu câu để lịch sự: <b>Please ${im.v} ${im.obj}.</b>`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't14', level: 'thinking',
+          prompt: `Câu mệnh lệnh có chủ ngữ hay không?`,
+          correct: 'Không — chủ ngữ ngầm hiểu là "you"',
+          wrongPool: ['Có — luôn là "you"', 'Có — luôn là "I"', 'Có — tuỳ ngữ cảnh'],
+          explain: `Câu mệnh lệnh không viết chủ ngữ, chủ ngữ ngầm hiểu là "you".`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t15: Possessive Adjectives ---------- */
+  GENERATORS.t15 = function (n) {
+    const out = [];
+    const map = { I: 'my', You: 'your', He: 'his', She: 'her', We: 'our', They: 'their', It: 'its' };
+    const simpleSubjs = ['I', 'You', 'He', 'She', 'We', 'They'];
+    const things = ['bicycle', 'house', 'book', 'phone', 'bag'];
+    for (let i = 0; i < n; i++) {
+      const sub = pick(simpleSubjs); const thing = pick(things);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't15', level: 'basic',
+          prompt: `This is ${sub === 'I' ? 'my' : '___'} new ${thing}. (chủ ngữ: ${sub})`,
+          correct: map[sub], wrongPool: Object.values(map).filter(x => x !== map[sub]),
+          explain: `Tính từ sở hữu của "${sub}" là <b>${map[sub]}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't15', level: 'advanced',
+          prompt: `Their house is close to the park. → từ "their" bổ nghĩa cho từ nào?`,
+          correct: 'house', wrongPool: ['close', 'park', 'is'],
+          explain: `Tính từ sở hữu luôn đứng trước và bổ nghĩa cho danh từ theo sau nó (house).`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't15', level: 'thinking',
+          prompt: `Câu nào dùng SAI, nhầm "its" với "it's"?`,
+          correct: `It's tail is very long. (nói về con vật)`,
+          wrongPool: [`Its tail is very long.`, `It's raining now.`, `This is its cage.`],
+          explain: `Sai vì "it's" = "it is". Diễn tả sở hữu phải dùng <b>its</b> (không có dấu nháy).`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t16: Possessive Pronouns ---------- */
+  GENERATORS.t16 = function (n) {
+    const out = [];
+    const map = [['my', 'mine'], ['your', 'yours'], ['his', 'his'], ['her', 'hers'], ['our', 'ours'], ['their', 'theirs']];
+    const things = ['book', 'bike', 'bag', 'pencil', 'phone'];
+    for (let i = 0; i < n; i++) {
+      const [adj, pron] = pick(map); const thing = pick(things);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't16', level: 'basic',
+          prompt: `This ${thing} is ${adj} ${thing}. → This ${thing} is ___.`,
+          correct: pron, wrongPool: map.map(m => m[1]).filter(x => x !== pron),
+          explain: `Tính từ sở hữu "${adj}" tương ứng với đại từ sở hữu <b>${pron}</b> (không có danh từ theo sau).`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't16', level: 'advanced',
+          prompt: `Chọn câu ĐÚNG (dùng đại từ sở hữu, không lặp danh từ):`,
+          correct: `This ${thing} is ${pron}, not yours.`,
+          wrongPool: [`This ${thing} is ${adj}, not your.`, `This ${thing} is ${pron} ${thing}, not yours.`, `This ${thing} is ${adj}s, not yours.`],
+          explain: `Đại từ sở hữu đứng độc lập, không kèm danh từ: <b>${pron}</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't16', level: 'thinking',
+          prompt: `Đại từ sở hữu của "I" viết đúng chính tả là gì?`,
+          correct: 'mine', wrongPool: ["mine's", 'my', 'mines'],
+          explain: `"mine" không bao giờ thêm 's' hay dấu nháy.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t17: Future Simple ---------- */
+  GENERATORS.t17 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const s = pick(B.subjects); const v = pick(B.verbs);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't17', level: 'basic',
+          prompt: `${s.text} ___ ${v.obj} tomorrow. <i>(${v.v1})</i>`,
+          correct: `will ${v.v1}`, wrongPool: [`will ${v.v1s}`, `will ${v.ving}`, `will ${v.v2}`],
+          explain: `Tương lai đơn: S + will + V(bare) → <b>will ${v.v1}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't17', level: 'advanced',
+          prompt: `${s.text} ___ ${v.obj} next week. (phủ định)`,
+          correct: `won't ${v.v1}`, wrongPool: [`will not ${v.v2}`, `don't will ${v.v1}`, `will ${v.v1} not`],
+          explain: `Phủ định tương lai đơn: S + won't + V(bare) → <b>won't ${v.v1}</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't17', level: 'thinking',
+          prompt: `Đặt câu hỏi cho: "Robots will look after children in the future."`,
+          correct: 'Will robots look after children in the future?',
+          wrongPool: ['Do robots will look after children?', 'Robots will look after children?', 'Will robots looking after children?'],
+          explain: `Nghi vấn tương lai đơn: Will + S + V(bare)?`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t18: might ---------- */
+  GENERATORS.t18 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const act = pick(B.modal.might);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't18', level: 'basic',
+          prompt: `I'm not sure, but it ___ ${act}. (không chắc chắn)`,
+          correct: 'might', wrongPool: ['will', 'must', 'should'],
+          explain: `Diễn tả khả năng không chắc chắn → dùng <b>might</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't18', level: 'advanced',
+          prompt: `Dạng phủ định đúng của "might" là gì?`,
+          correct: 'might not', wrongPool: ["mightn't", 'not might', 'don’t might'],
+          explain: `Phủ định của "might" là <b>might not</b>, không viết tắt trong văn viết lớp 6.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't18', level: 'thinking',
+          prompt: `So với "will", "might" thể hiện điều gì?`,
+          correct: 'Độ chắc chắn thấp hơn — chỉ là khả năng có thể xảy ra',
+          wrongPool: ['Độ chắc chắn cao hơn "will"', 'Diễn tả quá khứ', 'Diễn tả mệnh lệnh'],
+          explain: `"might" thể hiện khả năng chưa chắc chắn, thấp hơn "will".`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t19: Articles a/an/the ---------- */
+  GENERATORS.t19 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const a = pick(B.articleNouns);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't19', level: 'basic',
+          prompt: `My father is ___ ${a.n}. (nhắc đến lần đầu)`,
+          correct: a.art, wrongPool: ['a', 'an', 'the'].filter(x => x !== a.art),
+          explain: `"${a.n}" bắt đầu bằng âm ${a.art === 'an' ? 'nguyên âm' : 'phụ âm'} → dùng <b>${a.art}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't19', level: 'advanced',
+          prompt: `${capFirst(a.art)} Sun keeps the Earth warm. → tại sao dùng "the" trước "Sun"?`,
+          correct: 'Vì Mặt Trời là vật duy nhất, độc nhất', wrongPool: ['Vì mới nhắc lần đầu', 'Vì là danh từ số nhiều', 'Vì là danh từ không đếm được'],
+          explain: `"the" dùng cho vật duy nhất, độc nhất vô nhị như the Sun, the Earth.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't19', level: 'thinking',
+          prompt: `Từ nào dùng "an" dù chữ cái đầu là phụ âm (do quy tắc phát âm)?`,
+          correct: 'an hour', wrongPool: ['a university', 'a house', 'a school'],
+          explain: `"hour" có 'h' câm, phát âm bắt đầu bằng nguyên âm → dùng <b>an hour</b>.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t20: First Conditional ---------- */
+  GENERATORS.t20 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const c = pick(B.conditional);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't20', level: 'basic',
+          prompt: `If we ___ (use) less paper, we will save a lot of trees.`,
+          correct: 'use', wrongPool: ['will use', 'used', 'using'],
+          explain: `Mệnh đề If dùng thì hiện tại đơn: If + S + V(hiện tại đơn), S + will + V.`,
+        }));
+      } else if (roll === 1) {
+        const correct = `${c.mainSubj} will ${c.mainVerb}`;
+        out.push(makeMCQ({
+          topicId: 't20', level: 'advanced',
+          prompt: `If ${c.ifPart}, ___.`,
+          correct,
+          wrongPool: [`${c.mainSubj} ${c.mainVerb}`, `${c.mainSubj} would ${c.mainVerb}`, `${c.mainSubj} ${c.mainVerb} will`],
+          explain: `Mệnh đề chính dùng "will + V(bare)" để nói về kết quả có thể xảy ra ở tương lai → <b>${correct}</b>.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't20', level: 'thinking',
+          prompt: `Câu nào viết SAI cấu trúc câu điều kiện loại 1?`,
+          correct: `If it will be sunny, we will go out.`,
+          wrongPool: [`If it is sunny, we will go out.`, `If you study hard, you will pass.`, `If it rains, we will stay at home.`],
+          explain: `Không dùng "will" trong mệnh đề If. Đúng: <b>If it is sunny, we will go out.</b>`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  /* ---------- t21: Superlative ---------- */
+  GENERATORS.t21 = function (n) {
+    const out = [];
+    for (let i = 0; i < n; i++) {
+      const short = i % 2 === 0; const adj = pick(short ? B.adjShort : B.adjLong);
+      const roll = i % 3;
+      if (roll === 0) {
+        out.push(makeMCQ({
+          topicId: 't21', level: 'basic',
+          prompt: `This is ${short ? 'the' : 'the'} ___ robot in the shop. <i>(${adj.pos})</i>`,
+          correct: adj.sup, wrongPool: [adj.pos, adj.comp, 'most ' + adj.sup],
+          explain: `So sánh nhất: ${short ? 'the + adj-est' : 'the most + adj'} → <b>the ${adj.sup}</b>.`,
+        }));
+      } else if (roll === 1) {
+        out.push(makeMCQ({
+          topicId: 't21', level: 'advanced',
+          prompt: `Với tính từ ngắn kết thúc "phụ âm-nguyên âm-phụ âm" (như "big"), quy tắc thêm "est" là gì?`,
+          correct: 'Nhân đôi phụ âm cuối rồi thêm est (big → biggest)',
+          wrongPool: ['Thêm "est" trực tiếp (big → bigest)', 'Đổi thành "more big"', 'Thêm "the most" trước'],
+          explain: `Quy tắc nhân đôi phụ âm cuối: big → the biggest, hot → the hottest.`,
+        }));
+      } else {
+        out.push(makeMCQ({
+          topicId: 't21', level: 'thinking',
+          prompt: `So sánh nhất của "good" là gì?`,
+          correct: 'the best', wrongPool: ['the goodest', 'the most good', 'the gooder'],
+          explain: `"good" là tính từ bất quy tắc: good → better → <b>the best</b>.`,
+        }));
+      }
+    }
+    return out;
+  };
+
+  function generateForTopic(topicId, count) {
+    const fn = GENERATORS[topicId];
+    if (!fn) return [];
+    return fn(count);
+  }
+
+  function buildQuiz(topicIds, totalCount) {
+    if (!topicIds || !topicIds.length) return [];
+    const perTopic = Math.max(3, Math.ceil((totalCount * 1.6) / topicIds.length));
+    let pool = [];
+    topicIds.forEach(id => { pool = pool.concat(generateForTopic(id, perTopic)); });
+    pool = shuffle(pool);
+    // Cân bằng độ khó tương đối: ưu tiên trộn đều basic/advanced/thinking
+    const byLevel = { basic: [], advanced: [], thinking: [] };
+    pool.forEach(q => byLevel[q.level] && byLevel[q.level].push(q));
+    const result = [];
+    const order = ['basic', 'advanced', 'thinking'];
+    let idx = { basic: 0, advanced: 0, thinking: 0 };
+    while (result.length < totalCount) {
+      let added = false;
+      for (const lv of order) {
+        if (result.length >= totalCount) break;
+        if (idx[lv] < byLevel[lv].length) {
+          result.push(byLevel[lv][idx[lv]++]);
+          added = true;
+        }
+      }
+      if (!added) break;
+    }
+    return shuffle(result).slice(0, totalCount);
+  }
+
+  const QuizEngine = { generateForTopic, buildQuiz, GENERATORS };
+  if (typeof module !== 'undefined') module.exports = QuizEngine;
+  global.QuizEngine = QuizEngine;
+})(typeof window !== 'undefined' ? window : global);
+
+</script>
+<script>
+(function(){
+  const $ = (sel, el=document) => el.querySelector(sel);
+  const $$ = (sel, el=document) => Array.from(el.querySelectorAll(sel));
+
+  /* ============ TAB SWITCH ============ */
+  $$('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      $$('.tab-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const tab = btn.dataset.tab;
+      $('#tabLesson').classList.toggle('hidden', tab!=='lesson');
+      $('#tabExercise').classList.toggle('hidden', tab!=='exercise');
+    });
+  });
+
+  /* ============ GRADE SWITCH (chỉ Lớp 6 hoạt động) ============ */
+  $$('.grade-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(btn.dataset.grade !== '6'){
+        alert('Nội dung Lớp ' + btn.dataset.grade + ' đang được xây dựng và sẽ sớm ra mắt. Hiện tại Lớp 6 đã hoàn thiện đầy đủ!');
+        return;
+      }
+      $$('.grade-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  /* =====================================================================
+     TAB 1: BÀI HỌC
+     ===================================================================== */
+  const lessonPickerBody = $('#lessonPickerBody');
+  const lessonPlaceholder = $('#lessonPlaceholder');
+  const lessonBody = $('#lessonBody');
+  const lessonCountTag = $('#lessonCountTag');
+
+  function groupByUnit(topics){
+    const map = {};
+    topics.forEach(t=>{
+      if(!map[t.unit]) map[t.unit] = { unit:t.unit, name:t.unitName, items:[] };
+      map[t.unit].items.push(t);
+    });
+    return Object.values(map).sort((a,b)=>a.unit-b.unit);
+  }
+
+  function buildLessonPicker(){
+    const groups = groupByUnit(GRADE6_TOPICS);
+    lessonPickerBody.innerHTML = groups.map(g=>`
+      <div class="unit-group">
+        <div class="unit-label"><span>Unit ${g.unit} — ${g.name}</span></div>
+        ${g.items.map(t=>`
+          <button class="topic-btn" data-id="${t.id}">
+            <span class="num">${t.id.slice(1)}</span>
+            <span>${t.title} <span style="color:var(--text-dim); font-weight:400;">— ${t.vi}</span></span>
+          </button>`).join('')}
+      </div>`).join('');
+    lessonCountTag.textContent = `0/${GRADE6_TOPICS.length}`;
+  }
+
+  function renderLesson(topicId){
+    const t = GRADE6_TOPICS.find(x=>x.id===topicId);
+    if(!t) return;
+    lessonPlaceholder.style.display = 'none';
+    lessonBody.style.display = 'block';
+
+    const structHtml = t.structure.map(block=>`
+      <div class="struct-block">
+        <div class="struct-label">${block.label}</div>
+        ${block.rows.map(r=>`
+          <div class="struct-row"><span class="k">${r.k}</span><span class="f">${r.f}</span></div>
+        `).join('')}
+      </div>`).join('');
+
+    const exHtml = t.examples.map(e=>`
+      <div class="lesson-example">
+        <div class="en">${e.en}</div>
+        <div class="vi">${e.vi}</div>
+      </div>`).join('');
+
+    const sigHtml = t.signals.map(s=>`<span class="pill">${s}</span>`).join('');
+
+    lessonBody.innerHTML = `
+      <div class="lesson-head">
+        <div>
+          <div class="lesson-name">${t.title}</div>
+          <div class="lesson-vi">${t.vi} · Unit ${t.unit} — ${t.unitName}</div>
+        </div>
+        <span class="tag">CHỦ ĐIỂM ${t.id.slice(1)}/21</span>
+      </div>
+      <div class="lesson-usage"><b>Ý nghĩa &amp; cách dùng:</b> ${t.usage}</div>
+      <div class="section-tiny-title">Cấu trúc</div>
+      ${structHtml}
+      <div class="section-tiny-title">Ví dụ minh hoạ</div>
+      ${exHtml}
+      <div class="section-tiny-title">Dấu hiệu nhận biết</div>
+      <div class="lesson-signals">${sigHtml}</div>
+      <div class="section-tiny-title">Ghi nhớ &amp; mẹo tránh lỗi sai</div>
+      <div class="lesson-note">${t.note}</div>
+    `;
+
+    $$('.topic-btn', lessonPickerBody).forEach(b=> b.classList.toggle('active', b.dataset.id===topicId));
+  }
+
+  lessonPickerBody.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.topic-btn');
+    if(!btn) return;
+    renderLesson(btn.dataset.id);
+    if(!btn.dataset.seen){
+      btn.dataset.seen = '1';
+      const seenCount = $$('.topic-btn[data-seen="1"]', lessonPickerBody).length;
+      lessonCountTag.textContent = `${seenCount}/${GRADE6_TOPICS.length}`;
+    }
+  });
+
+  buildLessonPicker();
+
+  /* =====================================================================
+     TAB 2: BÀI TẬP
+     ===================================================================== */
+  const exercisePickerBody = $('#exercisePickerBody');
+  const exSelectedTag = $('#exSelectedTag');
+  const startBtn = $('#startBtn');
+  const exercisePlaceholder = $('#exercisePlaceholder');
+  const quizArea = $('#quizArea');
+  const quizTitle = $('#quizTitle');
+  const quizSubTitle = $('#quizSubTitle');
+  const qlist = $('#qlist');
+  const scoreBar = $('#scoreBar');
+  const countBtns = $('#countBtns');
+  const checkBtn = $('#checkBtn');
+  const reshuffleBtn = $('#reshuffleBtn');
+  const copyBtn = $('#copyBtn');
+  const exportWordBtn = $('#exportWordBtn');
+
+  let selectedTopics = new Set();
+  let quizCount = 10;
+  let currentQuiz = [];
+
+  function buildExercisePicker(){
+    const groups = groupByUnit(GRADE6_TOPICS);
+    exercisePickerBody.innerHTML = groups.map(g=>`
+      <div class="unit-group">
+        <div class="unit-label"><span>Unit ${g.unit} — ${g.name}</span></div>
+        ${g.items.map(t=>`
+          <label class="topic-btn" data-id="${t.id}" style="cursor:pointer;">
+            <input type="checkbox" class="topic-check" data-id="${t.id}">
+            <span>${t.title} <span style="color:var(--text-dim); font-weight:400;">— ${t.vi}</span></span>
+          </label>`).join('')}
+      </div>`).join('');
+  }
+  buildExercisePicker();
+
+  function updateSelectedUI(){
+    exSelectedTag.textContent = `${selectedTopics.size} đã chọn`;
+    $$('.topic-check', exercisePickerBody).forEach(cb=>{
+      cb.checked = selectedTopics.has(cb.dataset.id);
+      cb.closest('.topic-btn').classList.toggle('active', cb.checked);
+    });
+    startBtn.disabled = selectedTopics.size === 0;
+  }
+
+  exercisePickerBody.addEventListener('change', (e)=>{
+    const cb = e.target.closest('.topic-check');
+    if(!cb) return;
+    if(cb.checked) selectedTopics.add(cb.dataset.id);
+    else selectedTopics.delete(cb.dataset.id);
+    updateSelectedUI();
+  });
+
+  $('#selectAllBtn').addEventListener('click', ()=>{
+    GRADE6_TOPICS.forEach(t=>selectedTopics.add(t.id));
+    updateSelectedUI();
+  });
+  $('#clearAllBtn').addEventListener('click', ()=>{
+    selectedTopics.clear();
+    updateSelectedUI();
+  });
+
+  countBtns.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.cbtn');
+    if(!btn) return;
+    quizCount = parseInt(btn.dataset.count, 10);
+    $$('.cbtn', countBtns).forEach(b=>b.classList.toggle('active', b===btn));
+  });
+
+  const LEVEL_LABEL = { basic:'Cơ bản', advanced:'Nâng cao', thinking:'Tư duy' };
+
+  function topicTitle(id){
+    const t = GRADE6_TOPICS.find(x=>x.id===id);
+    return t ? t.title : id;
+  }
+
+  function renderQuiz(){
+    qlist.innerHTML = currentQuiz.map((q,i)=>`
+      <div class="qrow" data-idx="${i}">
+        <div class="qmeta">
+          <span class="qnum">Câu ${i+1}</span>
+          <span class="lvl-tag ${q.level}">${LEVEL_LABEL[q.level]}</span>
+          <span class="qtopic">${topicTitle(q.topicId)}</span>
+        </div>
+        <div class="qprompt">${q.prompt}</div>
+        <div class="qoptions">
+          ${q.options.map((opt,oi)=>`
+            <label class="qopt" data-oi="${oi}">
+              <input type="radio" name="q${i}" value="${oi}">
+              <span>${opt}</span>
+            </label>`).join('')}
+        </div>
+        <div class="qexplain">${q.explain}</div>
+      </div>`).join('');
+    scoreBar.style.display = 'none';
+    scoreBar.className = 'score-bar';
+    $$('.qrow', qlist).forEach(row=>row.classList.remove('graded','correct','wrong'));
+  }
+
+  function startQuiz(){
+    if(selectedTopics.size === 0) return;
+    currentQuiz = QuizEngine.buildQuiz(Array.from(selectedTopics), quizCount);
+    exercisePlaceholder.style.display = 'none';
+    quizArea.style.display = 'block';
+    quizTitle.textContent = `${currentQuiz.length} câu luyện tập`;
+    quizSubTitle.textContent = Array.from(selectedTopics).map(topicTitle).join(' + ');
+    renderQuiz();
+  }
+  startBtn.addEventListener('click', startQuiz);
+
+  reshuffleBtn.addEventListener('click', ()=>{
+    if(selectedTopics.size === 0) return;
+    currentQuiz = QuizEngine.buildQuiz(Array.from(selectedTopics), quizCount);
+    renderQuiz();
+  });
+
+  function checkAnswers(){
+    let correct = 0, answered = 0;
+    currentQuiz.forEach((q,i)=>{
+      const row = $(`.qrow[data-idx="${i}"]`, qlist);
+      const checked = row.querySelector('input[type=radio]:checked');
+      row.classList.add('graded');
+      $$('.qopt', row).forEach((optEl,oi)=>{
+        optEl.classList.remove('opt-correct','opt-wrong');
+        if(oi === q.correct) optEl.classList.add('opt-correct');
+      });
+      if(checked){
+        answered++;
+        const oi = parseInt(checked.value,10);
+        if(oi === q.correct){ correct++; row.classList.add('correct'); }
+        else{
+          row.classList.add('wrong');
+          $$('.qopt', row)[oi].classList.add('opt-wrong');
+        }
+      }
+    });
+    const pct = Math.round((correct/currentQuiz.length)*100);
+    scoreBar.style.display = 'flex';
+    let cls='low', msg='Cố gắng ôn lại chủ điểm này thêm nhé! 💪';
+    if(pct>=80){ cls='good'; msg='Xuất sắc! Nắm rất chắc chủ điểm này 🎉'; }
+    else if(pct>=50){ cls='mid'; msg='Khá ổn, luyện thêm để chắc hơn nhé 👍'; }
+    scoreBar.className = 'score-bar ' + cls;
+    const unanswered = currentQuiz.length - answered;
+    scoreBar.innerHTML = `<span>Kết quả: <b>${correct}/${currentQuiz.length}</b> (${pct}%)</span><span>${unanswered>0 ? unanswered+' câu chưa trả lời · ' : ''}${msg}</span>`;
+  }
+  checkBtn.addEventListener('click', checkAnswers);
+
+  /* ============ Xuất đề (copy / Word) ============ */
+  function buildPlainText(){
+    const lines = [];
+    lines.push('PHIẾU BÀI TẬP — NGỮ PHÁP TIẾNG ANH LỚP 6');
+    lines.push('Chủ điểm: ' + Array.from(selectedTopics).map(topicTitle).join(' + '));
+    lines.push('Số câu: ' + currentQuiz.length);
+    lines.push('');
+    lines.push('--- ĐỀ BÀI ---');
+    currentQuiz.forEach((q,i)=>{
+      const plainPrompt = q.prompt.replace(/<[^>]+>/g,'');
+      lines.push(`${i+1}. ${plainPrompt}`);
+      q.options.forEach((opt,oi)=> lines.push(`   ${String.fromCharCode(65+oi)}. ${opt}`));
+    });
+    lines.push('');
+    lines.push('--- ĐÁP ÁN ---');
+    currentQuiz.forEach((q,i)=>{
+      lines.push(`${i+1}. ${String.fromCharCode(65+q.correct)}. ${q.options[q.correct]}`);
+    });
+    return lines.join('\n');
+  }
+
+  function flashBtn(btn, text){
+    const old = btn.textContent;
+    btn.textContent = text;
+    btn.classList.add('copy-flash');
+    setTimeout(()=>{ btn.textContent = old; btn.classList.remove('copy-flash'); }, 1600);
+  }
+
+  copyBtn.addEventListener('click', async ()=>{
+    if(!currentQuiz.length) return;
+    const text = buildPlainText();
+    try{
+      await navigator.clipboard.writeText(text);
+      flashBtn(copyBtn, '✓ Đã copy!');
+    }catch(err){
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      try{ document.execCommand('copy'); flashBtn(copyBtn, '✓ Đã copy!'); }
+      catch(e2){ flashBtn(copyBtn, '✕ Lỗi copy'); }
+      document.body.removeChild(ta);
+    }
+  });
+
+  function escapeHtml(str){
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  }
+
+  function buildWordDoc(){
+    const dateStr = new Date().toLocaleDateString('vi-VN');
+    const topicNames = Array.from(selectedTopics).map(topicTitle).join(' + ');
+    const qRows = currentQuiz.map((q,i)=>{
+      const plainPrompt = q.prompt.replace(/<i>|<\/i>/g,'').replace(/<b>|<\/b>/g,'');
+      const opts = q.options.map((opt,oi)=>`<div style="margin-left:18px; font-size:12pt;">${String.fromCharCode(65+oi)}. ${escapeHtml(opt)}</div>`).join('');
+      return `<p style="margin:0 0 4px 0; font-size:13pt; line-height:1.5;"><b>Câu ${i+1}</b> (${LEVEL_LABEL[q.level]}): ${escapeHtml(plainPrompt)}</p>${opts}<div style="margin-bottom:12px;"></div>`;
+    }).join('');
+    const aRows = currentQuiz.map((q,i)=>
+      `<p style="margin:0 0 6px 0; font-size:12pt;"><b>Câu ${i+1}:</b> ${String.fromCharCode(65+q.correct)}. ${escapeHtml(q.options[q.correct])} — <i>${escapeHtml(q.explain.replace(/<[^>]+>/g,''))}</i></p>`
+    ).join('');
+
+    return `
+    <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
+    <head>
+      <meta charset="utf-8">
+      <title>Phieu bai tap ngu phap lop 6</title>
+      <!--[if gte mso 9]>
+      <xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml>
+      <![endif]-->
+      <style>
+        body{ font-family:'Times New Roman', serif; }
+        h1{ font-size:18pt; margin-bottom:2px; }
+        .meta{ font-size:12pt; color:#333; margin-bottom:14px; }
+        .section-title{ font-size:14pt; font-weight:bold; margin:18px 0 10px; border-bottom:1px solid #999; padding-bottom:4px; }
+        .page-break{ page-break-before: always; }
+      </style>
+    </head>
+    <body>
+      <h1>PHIẾU BÀI TẬP — NGỮ PHÁP TIẾNG ANH LỚP 6</h1>
+      <p class="meta">
+        Chủ điểm: <b>${escapeHtml(topicNames)}</b><br>
+        Số câu: <b>${currentQuiz.length}</b> &nbsp;|&nbsp; Ngày: ${dateStr}<br>
+        Họ và tên: ______________________________ &nbsp;&nbsp; Lớp: ____________
+      </p>
+      <div class="section-title">I. ĐỀ BÀI</div>
+      ${qRows}
+      <div class="page-break"></div>
+      <div class="section-title">II. ĐÁP ÁN &amp; GIẢI THÍCH</div>
+      ${aRows}
+    </body>
+    </html>`;
+  }
+
+  exportWordBtn.addEventListener('click', ()=>{
+    if(!currentQuiz.length) return;
+    const html = buildWordDoc();
+    const blob = new Blob(['\ufeff', html], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `phieu-bai-tap-ngu-phap-lop6-${currentQuiz.length}cau.doc`;
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(()=> URL.revokeObjectURL(url), 2000);
+    flashBtn(exportWordBtn, '✓ Đã tải!');
+  });
+
+  updateSelectedUI();
+})();
+</script>
+</body>
+</html>
